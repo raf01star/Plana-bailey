@@ -1,23 +1,20 @@
 {
-    "name": "@yumenative/baileys",
+    "name": "@heavstaltech/baileys",
     "version": "2.0.3",
     "description": "WhatsApp API Modification By K",
     "keywords": [
         "whatsapp",
-        "laurine-wabot",
         "baileys",
         "whatsapp-web",
-        "whatsapp-chat",
-        "whatsapp-group",
-        "botwa",
-        "stvnnvs"
+        "heavstal-tech",
+        "HT-baileys",
     ],
-    "homepage": "https://www.npmjs.com/package/@stvnnvs/baileys",
+    "homepage": "https://www.npmjs.com/package/@heavstaltech/baileys",
     "repository": {
-        "url": "https://www.npmjs.com/package/@stvnnvs/baileys"
+        "url": "https://www.npmjs.com/package/@heavstaltech/baileys"
     },
     "license": "MIT",
-    "author": "Adhiraj Singh",
+    "author": "HEAVSTAL TECH",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "files": [
