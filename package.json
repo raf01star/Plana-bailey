@@ -12,8 +12,11 @@
     ],
     "homepage": "https://www.npmjs.com/package/@heavstaltech/baileys",
     "repository": {
-        "url": "https://www.npmjs.com/package/@heavstaltech/baileys"
+        "url": "https://github.com/HeavstalTech/HT-baileys"
     },
+    "bugs": {
+    "url": "https://github.com/HeavstalTech/HT-baileys/issues"
+  },
     "license": "MIT",
     "author": "HEAVSTAL TECH",
     "main": "lib/index.js",
