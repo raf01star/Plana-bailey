@@ -372,5 +372,5 @@ This software is provided "as is", without warranty of any kind. Users are respo
 ---
 
 <div align="center">
-  <sub>© 2025 Heavstal Tech. All rights reserved.</sub>
+  <sub>© 2025 - 2026 Heavstal Tech. All rights reserved.</sub>
 </div>
