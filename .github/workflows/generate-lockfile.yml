@@ -1,0 +1,26 @@
+name: Generate Lockfile
+on: workflow_dispatch # This allows you to click a button to run it manually
+
+jobs:
+  lockfile:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Important: allows the bot to push changes
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate Lockfile
+        run: npm install --package-lock-only
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add package-lock.json
+          git commit -m "chore: generate package-lock.json for stability"
+          git push
