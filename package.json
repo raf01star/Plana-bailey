@@ -8,6 +8,7 @@
         "whatsapp-web",
         "heavstal-tech",
         "HT-baileys",
+        "Websockets"
     ],
     "homepage": "https://www.npmjs.com/package/@heavstaltech/baileys",
     "repository": {
