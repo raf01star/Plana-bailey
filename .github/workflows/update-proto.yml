@@ -1,0 +1,52 @@
+name: Auto Update WAProto
+
+on:
+  schedule:
+    # Run every day at midnight (UTC)
+    - cron: '0 0 * * *'
+  workflow_dispatch: 
+
+permissions:
+  contents: write # Gives permission to create branches/commits
+  pull-requests: write # Gives permission to open the PR
+
+jobs:
+  update-proto:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Generate Protobuf
+        # Your script that updates WAProto files
+        run: yarn run generate:protobuf 
+
+      - name: Check for Changes
+        id: git-check
+        run: |
+          # If diff finds changes, it returns exit code 1, triggering the echo
+          git diff --exit-code || echo "changes=true" >> $GITHUB_OUTPUT
+
+      - name: Create Pull Request
+        if: steps.git-check.outputs.changes == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} 
+          commit-message: "chore: update WAProto definitions"
+          title: "🤖 Auto-Update: WAProto Definitions"
+          body: |
+            Updates WAProto from the latest WhatsApp Web.
+            
+            **Reviewer:** Check `WAProto.js` to ensure custom mods aren't overwritten.
+          branch: chore/proto-update
+          delete-branch: true # Deletes the temp branch after you merge
+          base: main # Change to 'main' if that's your default
